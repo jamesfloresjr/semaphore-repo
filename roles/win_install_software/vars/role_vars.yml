@@ -1,6 +1,6 @@
 ---
 # Do not include the trailing "\"
-repository: "\\\\share\\windows_software"
+repository: "\\\\unraid.local\\share\\repo"
 
 # Name must match inside the repository structure
 apps:
