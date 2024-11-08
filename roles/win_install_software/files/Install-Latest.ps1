@@ -72,14 +72,14 @@ function Install-Exe ($Name, $Installer, $ArgList, $Latest) {
             # Command to install the EXE file (you can modify this command as needed)
             Start-Process -FilePath $Installer -ArgumentList $ArgList -Wait
         } elseif ($Latest -eq $current_version) {
-            Write-Output "$Name EXE: System is up to date." -ForegroundColor Green
+            Write-Output "$Name EXE: System is up to date."
         } else {
-            Write-Output "$Name EXE: Installer is out of date." -ForegroundColor Red
+            Write-Output "$Name EXE: Installer is out of date."
         }
 
     } catch {
         # Output a custom message
-        Write-Output "$Name EXE: An error occurred." -ForegroundColor Red
+        Write-Output "$Name EXE: An error occurred."
 
         # Output the detailed error message
         Write-Output "Error details: $($_.Exception.Message)"
@@ -100,14 +100,14 @@ function Install-Msi ($Name, $Installer, $ArgList, $Latest) {
             # Command to install the MSI file (you can modify this command as needed)
             Start-Process -FilePath msiexec.exe -ArgumentList "/i `"$Installer`" $ArgList" -Wait
         } elseif ($Latest -eq $current_version) {
-            Write-Output "$Name MSI: System is up to date." -ForegroundColor Green
+            Write-Output "$Name MSI: System is up to date."
         } else {
-            Write-Output "$Name MSI: Installer is out of date." -ForegroundColor Red
+            Write-Output "$Name MSI: Installer is out of date."
         }
 
     } catch {
         # Output a custom message
-        Write-Output "$Name MSI: An error occurred." -ForegroundColor Red
+        Write-Output "$Name MSI: An error occurred."
 
         # Output the detailed error message
         Write-Output "Error details: $($_.Exception.Message)"
@@ -146,6 +146,6 @@ foreach ($app in $Apps) {
     }
     # Fails if variable is not specified
     else {
-        Write-Output "Preferred installer not specified." -ForegroundColor Red
+        Write-Output "Preferred installer not specified." 
     }
 }
