@@ -3,15 +3,15 @@
   include_vars:
     file: role_vars.yml
 
-- name: Create C:\temp
-  win_file:
-    path: C:\temp
-    state: directory
+#- name: Create C:\temp
+#  win_file:
+#    path: C:\temp
+#    state: directory
 
 - name: Copy PowerShell script to remote host
   win_template:
     src: files/Install-Latest.ps1
-    dst: C:\temp
+    dst: C:\temp\Install-Latest.ps1
 
 - name: Execute PowerShell script
   win_shell: |
