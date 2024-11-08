@@ -76,7 +76,7 @@ function Install-Exe ($Name, $Installer, $ArgList, $Latest) {
         } elseif ($Latest -eq $current_version) {
             Write-Output "$Name EXE: System is up to date.`n"
         } else {
-            Write-Output "$Name EXE: Installer is out of date.`n"
+            Write-Output "$Name EXE: Software is already up-to-date.`n"
         }
 
     } catch {
@@ -107,7 +107,7 @@ function Install-Msi ($Name, $Installer, $ArgList, $Latest) {
         } elseif ($Latest -eq $current_version) {
             Write-Output "$Name MSI: System is up to date.`n"
         } else {
-            Write-Output "$Name MSI: Installer is out of date.`n"
+            Write-Output "$Name MSI: Software is already up-to-date.`n"
         }
 
     } catch {
