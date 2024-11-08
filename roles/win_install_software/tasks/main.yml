@@ -11,7 +11,7 @@
 - name: Copy PowerShell script to remote host
   win_template:
     src: files/Install-Latest.ps1
-    dst: C:\temp\Install-Latest.ps1
+    dest: C:\temp\Install-Latest.ps1
 
 - name: Execute PowerShell script
   win_shell: |
