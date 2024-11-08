@@ -14,10 +14,9 @@
     dest: C:\temp\Install-Latest.ps1
 
 - name: Execute PowerShell script
-  win_powershell:
-    script: |
-      $apps = "{{ apps | join(',') }}"
-      C:\temp\Install-Latest.ps1 -Repository "{{ repository }}" -Apps ($apps -split ',')
+  win_shell: |
+    $apps = "{{ apps | join(',') }}"
+    C:\temp\Install-Latest.ps1 -Repository "{{ repository }}" -Apps ($apps -split ',')
   register: output
 
 - name: PowerShell script output
