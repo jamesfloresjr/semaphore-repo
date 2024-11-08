@@ -1,9 +1,0 @@
----
-# Do not include the trailing "\"
-repository: "\\\\share\\windows_software"
-
-# Name must match inside the repository structure
-apps:
-  - firefox
-  - putty
-  - notepad++
