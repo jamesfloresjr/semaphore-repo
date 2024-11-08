@@ -62,8 +62,9 @@ function Get-InstalledSoftware {
 function Install-Exe ($Name, $Installer, $ArgList, $Latest) {
     # Compare latest and installed version
     try {
-        # Get current version installed
-        $current_version = [System.Version]$installed.( $($installed.Keys -like "*$Name*") )
+        # Get current version installed, if $null sets the version to 0.0 to ensure installation
+        try { $current_version = [System.Version]$installed.( $( $installed.Keys -like "*$Name*" ) ) }
+        catch { $current_version = [System.Version]"0.0" }
 
         # Stop running processes
         Get-Process -Name "*$Name*" | Stop-Process -Force
