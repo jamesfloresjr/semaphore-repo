@@ -3,10 +3,10 @@
   include_vars:
     file: role_vars.yml
 
-- name: "Create C:\temp"
-  win_file:
-    path: C:\temp
-    state: directory
+#- name: "Create C:\temp"
+#  win_file:
+#    path: C:\temp
+#    state: directory
 
 - name: "Copy PowerShell script to remote host"
   win_template:
@@ -25,8 +25,7 @@
   debug:
     var: output.stdout_lines
 
-always:
-  - name: "Remove PowerShell script from remote host"
-    win_file:
-      path: C:\temp\Install-Latest.ps1
-      state: absent
+- name: "Remove PowerShell script from remote host"
+  win_file:
+    path: C:\temp\Install-Latest.ps1
+    state: absent
