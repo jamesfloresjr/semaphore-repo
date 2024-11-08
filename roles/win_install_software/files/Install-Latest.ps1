@@ -97,6 +97,7 @@ function Install-Msi ($Name, $Installer, $ArgList, $Latest) {
 
         # Stop running processes
         Get-Process -Name "*$Name*" | Stop-Process -Force
+        Stop-Process -Name "msiexec"
 
         if ($Latest -gt $current_version) {
             # Command to install the MSI file (you can modify this command as needed)
