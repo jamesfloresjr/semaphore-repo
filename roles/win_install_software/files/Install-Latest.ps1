@@ -72,9 +72,9 @@ function Install-Exe ($Name, $Installer, $ArgList, $Latest) {
             # Command to install the EXE file (you can modify this command as needed)
             Start-Process -FilePath $Installer -ArgumentList $ArgList -Wait
         } elseif ($Latest -eq $current_version) {
-            Write-Output "$Name EXE: System is up to date."
+            Write-Output "$Name EXE: System is up to date.`n"
         } else {
-            Write-Output "$Name EXE: Installer is out of date."
+            Write-Output "$Name EXE: Installer is out of date.`n"
         }
 
     } catch {
@@ -82,7 +82,7 @@ function Install-Exe ($Name, $Installer, $ArgList, $Latest) {
         Write-Output "$Name EXE: An error occurred."
 
         # Output the detailed error message
-        Write-Output "Error details: $($_.Exception.Message)"
+        Write-Output "`tError details: $($_.Exception.Message)`n"
     }
 }
 
@@ -90,8 +90,9 @@ function Install-Exe ($Name, $Installer, $ArgList, $Latest) {
 function Install-Msi ($Name, $Installer, $ArgList, $Latest) {
     # Compare latest and installed version
     try {
-        # Get current version installed
-        $current_version = [System.Version]$installed.( $( $installed.Keys -like "*$Name*" ) )
+        # Get current version installed, if $null sets the version to 0.0 to ensure installation
+        try { $current_version = [System.Version]$installed.( $( $installed.Keys -like "*$Name*" ) ) }
+        catch { $current_version = [System.Version]"0.0" }
 
         # Stop running processes
         Get-Process -Name "*$Name*" | Stop-Process -Force
@@ -100,9 +101,9 @@ function Install-Msi ($Name, $Installer, $ArgList, $Latest) {
             # Command to install the MSI file (you can modify this command as needed)
             Start-Process -FilePath msiexec.exe -ArgumentList "/i `"$Installer`" $ArgList" -Wait
         } elseif ($Latest -eq $current_version) {
-            Write-Output "$Name MSI: System is up to date."
+            Write-Output "$Name MSI: System is up to date.`n"
         } else {
-            Write-Output "$Name MSI: Installer is out of date."
+            Write-Output "$Name MSI: Installer is out of date.`n"
         }
 
     } catch {
@@ -110,7 +111,7 @@ function Install-Msi ($Name, $Installer, $ArgList, $Latest) {
         Write-Output "$Name MSI: An error occurred."
 
         # Output the detailed error message
-        Write-Output "Error details: $($_.Exception.Message)"
+        Write-Output "`tError details: $($_.Exception.Message)`n"
     }
 }
 
