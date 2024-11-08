@@ -72,6 +72,7 @@ function Install-Exe ($Name, $Installer, $ArgList, $Latest) {
         if ($Latest -gt $current_version) {
             # Command to install the EXE file (you can modify this command as needed)
             Start-Process -FilePath $Installer -ArgumentList $ArgList -Wait
+            Write-Output "$Name EXE: Successfully installed.`n"
         } elseif ($Latest -eq $current_version) {
             Write-Output "$Name EXE: System is up to date.`n"
         } else {
@@ -97,11 +98,12 @@ function Install-Msi ($Name, $Installer, $ArgList, $Latest) {
 
         # Stop running processes
         Get-Process -Name "*$Name*" | Stop-Process -Force
-        Stop-Process -Name "msiexec"
+        Get-Process -Name "msiexec" | Stop-Process -Force
 
         if ($Latest -gt $current_version) {
             # Command to install the MSI file (you can modify this command as needed)
             Start-Process -FilePath msiexec.exe -ArgumentList "/i `"$Installer`" $ArgList" -Wait
+            Write-Output "$Name MSI: Successfully installed.`n"
         } elseif ($Latest -eq $current_version) {
             Write-Output "$Name MSI: System is up to date.`n"
         } else {
