@@ -15,7 +15,7 @@
 
 - name: Execute PowerShell script
   win_shell: |
-    $apps = {{ apps }} | join(',')
+    $apps = {{ tab | join(',') }}
     C:\temp\Install-Latest.ps1 -Repository "{{ repository }}" -Apps ($apps -split ',')
   args:
     executable: powershell.exe
