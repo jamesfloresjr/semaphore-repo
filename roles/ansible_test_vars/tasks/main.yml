@@ -1,0 +1,8 @@
+---
+- name: "Import variables from installer_data.yml"
+  include_vars:
+    file: apps.yml
+
+- name: Print vars
+  debug:
+    var: apps.name
