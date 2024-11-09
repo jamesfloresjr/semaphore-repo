@@ -3,6 +3,10 @@
   include_vars:
     file: apps_vars.yml
 
-- name: Print vars
+- name: Print apps.name
   debug:
-    var: {{ apps.name }}
+    msg: {{ apps.name }}
+
+- name: Print apps.name
+  debug:
+    msg: {{ apps }}
