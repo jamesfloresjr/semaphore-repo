@@ -9,4 +9,4 @@
 
 - name: Print apps.name
   debug:
-    msg: {{ apps }}
+    msg: {{ installerLocation }}
