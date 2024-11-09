@@ -2,6 +2,6 @@
 - name: Test vars
   hosts: localhost
   gather_facts: no
-  tasks:
-    - name: Ping the Windows hosts
-      win_ping:
+  roles:
+  - ansible_test_vars
+  
