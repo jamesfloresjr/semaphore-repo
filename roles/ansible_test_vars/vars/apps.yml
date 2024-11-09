@@ -1,0 +1,76 @@
+installerLocation: '\\utility2\global\COTS_Installs\WINDOWS_Install\data\installers\'
+
+splunk:
+  # msi: 'splunkforwarder-9.2.2-d76edf6f0a15-x64-release.msi'
+  msi: 'splunkforwarder-*-x64-release.msi'
+  app_path: 'C:\Program Files\SplunkUniversalForwarder'
+  
+# These variables are specific to VMware, see the README for details
+vmware:
+  #installer: 'VMware-PowerCLI-13.2.1-22851661.zip'
+  installer: 'VMware-PowerCLI-*.zip'
+  temp_path: 'C:\Temp\'
+  app_path: 'C:\Program Files\Wi1ndowsPowerShell\Modules\'
+
+apps:
+  
+  7zip:
+    name: '7-Zip'
+    installer: '7z*.exe'
+    app_path: 'C:\Program Files\7-Zip\7zFM.exe'
+    args: '/S'
+  
+  adobe:
+    name: 'Adobe'
+    installer: 'AcroRdrDC*.exe'
+    app_path: 'C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe'
+    args: '/sAll'
+  
+  firefox:
+    name: 'Firefox'
+    installer: '"Firefox Setup*.msi"'
+    app_path: 'C:\Program Files\Mozilla Firefox\firefox.exe'
+    args: '/quiet'
+  
+  notepad:
+    name: 'Notepad++'
+    installer: 'npp.*.Installer.x64.exe'
+    app_path: 'C:\Program Files\Notepad++\notepad++.exe'
+    args: '/S'
+  
+  putty:
+    name: 'PuTTY'
+    installer: 'putty-*-installer.msi'
+    app_path: 'C:\Program Files\PuTTY\putty.exe'
+    args: '/quiet'
+  
+  imgburn:
+    name: 'ImgBurn'
+    installer: 'SetupImgBurn*.exe'
+    app_path: 'C:\Program Files (x86)\ImgBurn\ImgBurn.exe'
+    args: '/S'
+  
+  jedi:
+    name: 'JEDI'
+    installer: 'secbanner.msi'
+    app_path: 'C:\Program Files\JEDI\bin\secbanner.exe'
+    args: '/passive'
+    
+  windirstat:
+    name: 'WinDirStat'
+    installer: 'windirstat*setup.exe'
+    app_path: 'C:\Program Files (x86)\WinDirStat\windirstat.exe'
+    args: '/S'
+    
+  winscp:
+    name: 'WinSCP'
+    installer: 'WinSCP*Setup.exe'
+    app_path: 'C:\Program Files (x86)\WinSCP\WinSCP.exe'
+    args: '/VERYSILENT /ALLUSERS'
+
+  splunk:
+    name: 'UniversalForwarder'
+    installer: 'splunkforwarder-*.msi'
+    app_path: 'C:\Program Files\SplunkUniversalForwarder\bin\splunk.exe'
+    args:
+    
