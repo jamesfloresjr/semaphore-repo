@@ -7,6 +7,6 @@
 #  debug:
 #    msg: {{ apps.name }}
 
-- name: Print apps.name
+- name: "Print apps.name"
   debug:
     msg: {{ installerLocation }}
