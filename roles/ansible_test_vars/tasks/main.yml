@@ -9,4 +9,5 @@
 
 - name: "Print apps.name"
   debug:
-    msg: "{{ apps[name] }}"
+    msg: "{{ item.value.name }}"
+  with_dict: "{{ apps }}"
