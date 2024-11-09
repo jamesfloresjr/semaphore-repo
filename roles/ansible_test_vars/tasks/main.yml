@@ -5,4 +5,4 @@
 
 - name: Print vars
   debug:
-    var: apps.name
+    var: {{ apps.name }}
